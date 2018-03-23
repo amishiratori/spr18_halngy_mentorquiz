@@ -1,0 +1,26 @@
+<! DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>HAL名古屋メンタークイズ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="contents">
+                <h3>HAL名古屋メンタークイズ</h3>
+                <img src="../images/mentors/<%= @question.picture %>.png">
+                <form action="/question/check/<%= @question.id %>" method="post">
+                    <input type="radio" name="select_answer" value="1"><%= @question.choice1 %>
+                    <input type="radio" name="select_answer" value="2"><%= @question.choice2 %>
+                    <input type="radio" name="select_answer" value="3"><%= @question.choice3 %><br>
+                    <button type="submit"><i class="fas fa-play"></i></button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+        

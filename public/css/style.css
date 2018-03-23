@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'smartfont';
+    src: url('../smartfont.otf');
+}
+
+
+@media only screen and (min-width: 900px) {
+    body {
+        margin:0;
+        padding:0;
+        font-family: 'smartfont';
+        background: linear-gradient(#F2B9A1, #EA6264);
+    }
+    
+    h3 {
+        margin: 30px;
+        font-size: 3vw;
+    }
+    
+    .container {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .contents p {
+        font-size: 1.5vw;
+    }
+    
+    .contents img {
+        width: 300px;
+    }
+    
+    form {
+        font-size: 1.5vw;
+        padding: 5%;
+    }
+    
+    form input {
+        margin: 0 5%;
+    }
+    
+    button {
+        border: none;
+        background: transparent;
+        font-size: 3vw;
+        margin-top: 10%;
+    }
+    
+    button:hover {
+        opacity: 0.6;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    body {
+        margin:0;
+        padding:0;
+        font-family: 'smartfont';
+        background: linear-gradient(#F2B9A1, #EA6264);
+    }
+
+    h3 {
+        font-size: 5vw;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .contents {
+        width:  90%;
+    }
+    
+    .contents p {
+        font-size: 4vw;
+    }
+    
+    .contents img {
+        width: 70%;
+    }
+    
+    form {
+        font-size: 4vw;
+        padding: 5%;
+    }
+
+    form input {
+        margin: 0 3%;
+    }
+    
+    button {
+        border: none;
+        background: transparent;
+        font-size: 10vw;
+        margin-top: 10%;
+    }
+}
