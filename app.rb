@@ -60,7 +60,7 @@ get '/remake_mentors_table' do
   
     for num in 2..20
       num = num.to_s
-      data = s_service.batch_get_spreadsheet_values('1zDTlaGRAP8Lw1nUJUnr7QgJbHuzTuEZ3SKFM0_E53FM', ranges: 'A' + num + ':E' + num).value_ranges.first.values
+      data = s_service.batch_get_spreadsheet_values(ENV['SPREADSHEET_ID'], ranges: 'A' + num + ':E' + num).value_ranges.first.values
       unless data.blank?  
         Mentor.create(
           picture: data[0][0],
@@ -73,4 +73,24 @@ get '/remake_mentors_table' do
         break
       end
     end
+end
+
+get '/test' do
+  credential_file = './MyProject-e3ddd3ab5bd6.json'
+  
+  authorizer = Google::Auth::ServiceAccountCredentials.make_creds(
+      json_key_io: File.open(credential_file),
+      scope: Google::Apis::SheetsV4::AUTH_SPREADSHEETS
+  )  
+  authorizer.fetch_access_token!
+  
+  s_service = Google::Apis::SheetsV4::SheetsService.new
+  s_service.authorization = authorizer
+  
+  data = s_service.batch_get_spreadsheet_values(ENV['SPREADSHEET_ID'], ranges: 'test!A1:E5' , value_render_option: 'formula').value_ranges.first.values
+  
+  
+  @test = data[0][0]
+  
+  erb :test
 end
